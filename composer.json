@@ -1,0 +1,26 @@
+{
+    "name": "edgardmessias/glpi-trademark",
+    "description": "Fix Mail Collector for GLPI",
+    "license": "GPL v2+",
+    "require": {
+        "scssphp/scssphp": "^1.4"
+    },
+    "require-dev": {
+        "consolidation/robo": "^2.2",
+        "glpi-project/coding-standard": "^0.8",
+        "pear/archive_tar": "^1.4",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "scripts": {
+        "build": "robo build",
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2.0"
+        }
+    }
+}

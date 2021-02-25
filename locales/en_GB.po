@@ -1,0 +1,83 @@
+# English translations for trademark package.
+# Copyright (C) 2021 THE trademark'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the trademark package.
+# Automatically generated, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: trademark 1.2.3\n"
+"Report-Msgid-Bugs-To: https://github.com/edgardmessias/glpi-trademark/"
+"issues\n"
+"POT-Creation-Date: 2021-02-17 13:42-0300\n"
+"PO-Revision-Date: 2021-02-17 13:42-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: inc/config.class.php:27 setup.php:53
+msgid "Trademark"
+msgstr "Trademark"
+
+#: inc/config.class.php:105
+#, php-format
+msgid "Unable to compile the SCSS (%1$s). Message: "
+msgstr "Unable to compile the SCSS (%1$s). Message: "
+
+#: inc/config.class.php:124 inc/config.class.php:338 inc/config.class.php:545
+msgid "Login Page"
+msgstr "Login Page"
+
+#: inc/config.class.php:125 inc/config.class.php:339 inc/config.class.php:582
+msgid "Internal Page"
+msgstr "Internal Page"
+
+#: inc/config.class.php:184 inc/config.class.php:187 inc/config.class.php:500
+#: inc/config.class.php:503
+msgid "Reset"
+msgstr "Reset"
+
+#: inc/config.class.php:199
+#, php-format
+msgid "Recommended size: %1$s"
+msgstr "Recommended size: %1$s"
+
+#: inc/config.class.php:209
+#, php-format
+msgid "Custom CSS for %1$s"
+msgstr "Custom CSS for %1$s"
+
+#: inc/config.class.php:212
+msgid "CSS Type"
+msgstr "CSS Type"
+
+#: inc/config.class.php:337
+msgid "Favicon and Title"
+msgstr "Favicon and Title"
+
+#: inc/config.class.php:366
+msgid "Footer"
+msgstr "Footer"
+
+#: inc/config.class.php:370
+msgid "Hide"
+msgstr "Hide"
+
+#: inc/config.class.php:371
+msgid "Custom"
+msgstr "Custom"
+
+#: inc/config.class.php:377
+msgid "Footer text"
+msgstr "Footer text"
+
+#: inc/config.class.php:409
+msgid "Theme"
+msgstr "Theme"
+
+#: inc/config.class.php:540
+msgid "Background picture"
+msgstr "Background picture"

@@ -1,0 +1,10 @@
+{
+    "name": "Neon",
+    "description": "Neon Theme",
+    "variables": {
+        "custom-color": {
+            "name": "Cor dos Botões",
+            "default": "#e4edee"
+        }
+    }
+}

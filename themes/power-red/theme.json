@@ -1,0 +1,10 @@
+{
+    "name": "Power Red",
+    "description": "Power Red Theme",
+    "variables": {
+        "custom-color": {
+            "name": "Cor dos Botões",
+            "default": "#ba0c16"
+        }
+    }
+}

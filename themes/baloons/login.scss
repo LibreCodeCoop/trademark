@@ -1,0 +1,97 @@
+/*Tema 9 - Baloons*/
+
+$custom-color: #2b2b2b !default;
+
+#boxlogin input:-webkit-autofill {
+   box-shadow: 0 0 0px 1000px #fff inset;
+}
+#boxlogin input[type="text"],
+#boxlogin select,
+#boxlogin input[type="password"] {
+   width: 100%;
+   height: auto;
+   display: block;
+   border: none !important;
+   padding: 10px 10px 10px 10px;
+   font-size: 1.4em;
+   border-radius: 0;
+   box-sizing: border-box;
+   border: 0 !important;
+   background: transparent;
+   background: linear-gradient(0deg, #e6eef8, #e6eef8), #cfd8dc;
+   box-shadow: inset -4px -4px 12px rgb(253 255 255 / 80%),
+      inset 4px 4px 12px rgb(187 195 206 / 60%);
+   border-radius: 16px;
+}
+#boxlogin #login_input_name:before {
+   color: #0000006b;
+   position: absolute;
+   left: inherit;
+   right: 11px !important;
+   top: 9px;
+   font-size: 19px;
+}
+#boxlogin #login_input_password:before {
+   color: #0000006b;
+   position: absolute;
+   left: inherit;
+   right: 11px !important;
+   top: 9px;
+   font-size: 19px;
+}
+#boxlogin input.submit {
+   margin-top: 20px;
+   width: 100%;
+   height: auto;
+   font-size: 1.3em;
+   padding: 14px;
+   color: #fff;
+   background: rgb(126 102 167);
+   border-radius: 16px;
+   box-shadow: inset -4px -4px 12px rgb(79 87 126),
+      inset 4px 4px 12px rgb(156 139 206);
+}
+
+h1#logo_login {
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+
+#boxlogin #forget {
+   margin-top: 50px;
+   color: #354445;
+   width: 100%;
+   display: block;
+   text-align: center;
+   text-decoration: underline;
+   font-size: 14px;
+}
+
+#display-login,
+#text-login {
+   position: absolute;
+   top: 0;
+}
+.login_wrapper:before {
+   content: "";
+   border: solid 23px #d2deec42;
+   width: 100%;
+   display: block;
+   position: absolute;
+   height: 100%;
+   left: -23px;
+   top: -23px;
+   border-radius: 15px;
+   background: #e6eef800;
+   z-index: -1;
+   box-shadow: 0px 1px 25px -1px #00000063;
+}
+.login_wrapper {
+   background: #ffffff;
+   width: 317px;
+   margin: 102px auto;
+   padding-bottom: 20px;
+   border-radius: 0;
+   position: relative;
+   box-shadow: 0px 1px 25px -1px #00000063;
+}

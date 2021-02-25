@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <name>Trademark for GLPI</name>
+    <key>trademark</key>
+    <state>stable</state>
+    <logo>https://raw.githubusercontent.com/phamorais/trademark/master/plugin.png</logo>
+    <description>
+        <short>
+            <en><![CDATA[Trademark for GLPI]]></en>
+        </short>
+        <long>
+            <en><![CDATA[
+               # Trademark for GLPI >= 9.5
+
+               ![Lint](https://github.com/phamorais/trademark/workflows/Lint/badge.svg)
+               [![CodeFactor](https://www.codefactor.io/repository/github/phamorais/trademark/badge)](https://www.codefactor.io/repository/github/phamorais/trademark)
+               [![Total Downloads](https://img.shields.io/github/downloads/phamorais/trademark/total.svg)](https://github.com/phamorais/trademark/releases)
+               [![Current Release](https://img.shields.io/github/release/phamorais/trademark.svg)](https://github.com/phamorais/trademark/releases/latest)
+
+               Allow customization of logos, background and custom CSSs
+
+               # Installation
+                * Uncompress the archive to the `<GLPI_ROOT>/plugins/trademark` directory
+                * Navigate to the Configuration > Plugins page,
+                * Install and activate the plugin.
+               ]]></en>
+        </long>
+    </description>
+    <homepage>https://github.com/phamorais/trademark</homepage>
+    <download>https://github.com/phamorais/trademark/releases</download>
+    <issues>https://github.com/phamorais/trademark/issues</issues>
+    <readme>https://github.com/phamorais/trademark/wiki</readme>
+    <authors>
+        <author>Edgard Lorraine Messias</author>
+    </authors>
+    <versions>
+        <version>
+            <num>1.0.0</num>
+            <compatibility>9.4</compatibility>
+            <compatibility>9.5</compatibility>
+        </version>
+    </versions>
+    <langs>
+        <lang>en_GB</lang>
+        <lang>pt_BR</lang>
+    </langs>
+    <license><![CDATA[MIT]]></license>
+    <tags>
+        <en>
+            <tag>Customization</tag>
+            <tag>CSS</tag>
+            <tag>SCSS</tag>
+        </en>
+    </tags>
+    <screenshots>
+      <screenshot>https://raw.githubusercontent.com/phamorais/trademark/master/screenshots/image_1.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/phamorais/trademark/master/screenshots/image_2.png</screenshot>
+   </screenshots>
+</root>

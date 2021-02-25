@@ -1,0 +1,102 @@
+/*Tema 8 - Light*/
+
+$custom-color: #013453 !default;
+
+#boxlogin input:-webkit-autofill {
+   box-shadow: 0 0 0px 1000px #fff inset;
+}
+#boxlogin input[type="text"],
+#boxlogin select,
+#boxlogin input[type="password"] {
+   width: 100%;
+   height: auto;
+   display: block;
+   border: none !important;
+   padding: 10px 10px 10px 10px;
+   font-size: 1.4em;
+   border-radius: 0;
+   box-sizing: border-box;
+   border: 0 !important;
+   border-bottom: 1px solid #ccc !important;
+   background: #fff;
+}
+#boxlogin input[type="password"] {
+   border-radius: 0 0 6px 6px;
+}
+#boxlogin input[type="text"] {
+   border-radius: 6px 6px 0 0;
+}
+#boxlogin input::placeholder {
+   /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: $custom-color;
+   opacity: 1; /* Firefox */
+}
+
+#boxlogin input:-ms-input-placeholder {
+   /* Internet Explorer 10-11 */
+   color: $custom-color;
+}
+#boxlogin #login_input_name:before {
+   color: $custom-color;
+   position: absolute;
+   left: inherit;
+   right: 11px !important;
+   top: 9px;
+   font-size: 19px;
+}
+#boxlogin #login_input_password:before {
+   color: $custom-color;
+   position: absolute;
+   left: inherit;
+   right: 11px !important;
+   top: 9px;
+   font-size: 19px;
+}
+
+h1#logo_login {
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+
+#boxlogin #forget {
+   margin-top: 50px;
+   color: $custom-color;
+   width: 100%;
+   display: block;
+   text-align: center;
+   text-decoration: underline;
+   font-size: 14px;
+}
+
+#display-login,
+#text-login {
+   position: absolute;
+   top: 0;
+}
+#firstboxlogin .login_wrapper {
+   padding-top: 50px;
+}
+#boxlogin .login_input {
+   position: relative;
+   width: 13em;
+   margin: -5px auto 5px;
+   width: 240px;
+}
+#boxlogin input.submit {
+   margin-top: 20px;
+   width: 100%;
+   height: auto;
+   font-size: 1.3em;
+   padding: 14px;
+   color: #fff;
+   background: $custom-color;
+   border-radius: 6px;
+   border: none;
+}
+
+#firstboxlogin,
+#text-login,
+#logo_login {
+   background-color: transparent;
+   padding-top: 41px;
+}

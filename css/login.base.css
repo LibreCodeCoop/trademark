@@ -1,0 +1,11 @@
+#logo_login {
+   background: none;
+   margin: 0;
+   padding: 38px 0;
+   text-align: center;
+}
+
+#logo_login img {
+   display: block;
+   margin: 0 auto;
+}

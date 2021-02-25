@@ -1,0 +1,6 @@
+/*.tar
+/*.tar.gz
+/*.tgz
+/*.zip
+/locales/*.mo
+/vendor

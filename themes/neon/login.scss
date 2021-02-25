@@ -1,0 +1,133 @@
+/*Tema 5  - Neon*/
+
+$custom-color: #e4edee !default;
+
+#firstboxlogin .login_wrapper {
+   max-width: 100%;
+   background: rgb(0 0 0 / 10%);
+   border-radius: 0px;
+   color: #5d5d5d;
+   box-shadow: none;
+   border: none;
+   margin: auto;
+   min-height: 487px;
+   margin: 0;
+   position: absolute;
+   vertical-align: middle;
+   padding-top: 130px;
+   left: 0;
+   right: 0;
+   width: 35%;
+   top: 0;
+   bottom: 0;
+   min-width: 320px;
+}
+
+#boxlogin input:-webkit-autofill {
+   box-shadow: 0 0 0px 1000px #fff inset;
+}
+#boxlogin input[type="text"],
+#boxlogin select,
+#boxlogin input[type="password"] {
+   width: 100%;
+   height: auto;
+   display: block;
+   border: none !important;
+   padding: 10px 10px 10px 10px;
+   font-size: 1.4em;
+   border-radius: 0;
+   box-sizing: border-box;
+   border: 0 !important;
+   border-bottom: 1px solid #ccc !important;
+   background: transparent;
+}
+#boxlogin input[type="text"]:focus,
+#boxlogin input[type="password"]:focus {
+   background-color: #ffffff6e !important;
+}
+#boxlogin input::placeholder {
+   /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: #e5edee;
+   opacity: 1; /* Firefox */
+}
+
+#boxlogin input:-ms-input-placeholder {
+   /* Internet Explorer 10-11 */
+   color: #e5edee;
+}
+#boxlogin #login_input_name:before {
+   color: $custom-color;
+   position: absolute;
+   left: inherit;
+   right: 11px !important;
+   top: 9px;
+   font-size: 19px;
+}
+#boxlogin #login_input_password:before {
+   color: $custom-color;
+   position: absolute;
+   left: inherit;
+   right: 11px !important;
+   top: 9px;
+   font-size: 19px;
+}
+
+#boxlogin input.submit {
+   margin-top: 20px;
+   width: 100%;
+   height: auto;
+   font-size: 1.3em;
+   padding: 14px;
+   color: #505050;
+   background: $custom-color;
+   border-radius: 100px;
+}
+
+h1#logo_login {
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+
+#boxlogin #forget {
+   margin-top: 50px;
+   color: $custom-color;
+   width: 100%;
+   display: block;
+   text-align: center;
+   text-decoration: underline;
+   font-size: 14px;
+}
+
+#display-login,
+#text-login {
+   position: absolute;
+   top: 0;
+}
+
+/*Left alert */
+#display-login,
+#text-login {
+   width: 35%;
+   margin: 0 auto;
+   padding: 0;
+   font-size: 13px;
+   text-align: center;
+   overflow-x: hidden;
+   overflow-y: auto;
+   box-sizing: border-box;
+   position: absolute;
+   left: 0;
+}
+
+@media (max-width: 761px) {
+   #firstboxlogin .login_wrapper {
+      max-width: 100%;
+      width: 100%;
+      left: 0;
+      margin: 0 auto !important;
+   }
+   #display-login,
+   #text-login {
+      width: 100%;
+   }
+}
