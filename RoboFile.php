@@ -10,7 +10,7 @@ use Symfony\Component\Finder\Finder;
 class RoboFile extends \Robo\Tasks {
 
    protected $name = "trademark";
-   protected $issues = "https://github.com/edgardmessias/glpi-trademark/issues";
+   protected $issues = "https://github.com/librecode/trademark/issues";
    protected $locale_keywords = "t_trademark";
 
    protected function getLocaleFiles() {

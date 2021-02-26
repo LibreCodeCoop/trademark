@@ -1,7 +1,7 @@
 {
-    "name": "edgardmessias/glpi-trademark",
-    "description": "Fix Mail Collector for GLPI",
-    "license": "GPL v2+",
+    "name": "librecode/trademark",
+    "description": "Allow customization of logos, background and custom CSSs",
+    "license": "AGPL",
     "require": {
         "scssphp/scssphp": "^1.4"
     },

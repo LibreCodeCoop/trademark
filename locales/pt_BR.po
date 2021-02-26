@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: trademark 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/edgardmessias/glpi-trademark/"
+"Report-Msgid-Bugs-To: https://github.com/librecode/trademark/"
 "issues\n"
 "POT-Creation-Date: 2021-02-17 13:42-0300\n"
 "PO-Revision-Date: 2021-01-30 16:27-0300\n"
