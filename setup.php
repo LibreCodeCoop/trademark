@@ -53,7 +53,7 @@ function plugin_version_trademark() {
       'name'           => t_trademark('Trademark'),
       'version'        => PLUGIN_TRADEMARK_VERSION,
       'author'         => '<a href="https://librecode.coop/">LibreCode</a>, <a href="https://github.com/edgardmessias">Edgard</a>',
-      'homepage'       => 'https://github.com/lyseontech/trademark',
+      'homepage'       => 'https://github.com/librecodecoop/trademark',
       'license'        => 'GPL v2+',
       'minGlpiVersion' => PLUGIN_TRADEMARK_MIN_GLPI_VERSION,
       'requirements'   => [
