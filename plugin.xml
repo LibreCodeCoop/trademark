@@ -3,7 +3,7 @@
     <name>Trademark for GLPI</name>
     <key>trademark</key>
     <state>stable</state>
-    <logo>https://raw.githubusercontent.com/lyseontech/trademark/master/plugin.png</logo>
+    <logo>https://raw.githubusercontent.com/LibreCodeCoop/trademark/master/plugin.png</logo>
     <description>
         <short>
             <en><![CDATA[Trademark for GLPI]]></en>
@@ -12,10 +12,10 @@
             <en><![CDATA[
                # Trademark for GLPI >= 9.5
 
-               ![Lint](https://github.com/lyseontech/trademark/workflows/Lint/badge.svg)
-               [![CodeFactor](https://www.codefactor.io/repository/github/lyseontech/trademark/badge)](https://www.codefactor.io/repository/github/lyseontech/trademark)
-               [![Total Downloads](https://img.shields.io/github/downloads/lyseontech/trademark/total.svg)](https://github.com/lyseontech/trademark/releases)
-               [![Current Release](https://img.shields.io/github/release/lyseontech/trademark.svg)](https://github.com/lyseontech/trademark/releases/latest)
+               ![Lint](https://github.com/LibreCodeCoop/trademark/workflows/Lint/badge.svg)
+               [![CodeFactor](https://www.codefactor.io/repository/github/LibreCodeCoop/trademark/badge)](https://www.codefactor.io/repository/github/LibreCodeCoop/trademark)
+               [![Total Downloads](https://img.shields.io/github/downloads/LibreCodeCoop/trademark/total.svg)](https://github.com/LibreCodeCoop/trademark/releases)
+               [![Current Release](https://img.shields.io/github/release/LibreCodeCoop/trademark.svg)](https://github.com/LibreCodeCoop/trademark/releases/latest)
 
                Allow customization of logos, background and custom CSSs
 
@@ -26,10 +26,10 @@
                ]]></en>
         </long>
     </description>
-    <homepage>https://github.com/lyseontech/trademark</homepage>
-    <download>https://github.com/lyseontech/trademark/releases</download>
-    <issues>https://github.com/lyseontech/trademark/issues</issues>
-    <readme>https://github.com/lyseontech/trademark/wiki</readme>
+    <homepage>https://github.com/LibreCodeCoop/trademark</homepage>
+    <download>https://github.com/LibreCodeCoop/trademark/releases</download>
+    <issues>https://github.com/LibreCodeCoop/trademark/issues</issues>
+    <readme>https://github.com/LibreCodeCoop/trademark/wiki</readme>
     <authors>
         <author>Edgard Lorraine Messias</author>
     </authors>
@@ -53,7 +53,7 @@
         </en>
     </tags>
     <screenshots>
-      <screenshot>https://raw.githubusercontent.com/lyseontech/trademark/master/screenshots/image_1.png</screenshot>
-      <screenshot>https://raw.githubusercontent.com/lyseontech/trademark/master/screenshots/image_2.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/LibreCodeCoop/trademark/master/screenshots/image_1.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/LibreCodeCoop/trademark/master/screenshots/image_2.png</screenshot>
    </screenshots>
 </root>
