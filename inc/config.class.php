@@ -241,7 +241,7 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo '</textarea>';
 
       echo Html::scriptBlock('
-         $(function() {
+         jQuery(function() {
             var textarea = document.getElementById("' . $fullName . '_' . $rand . '");
             var editorCode = CodeMirror.fromTextArea(textarea, {
                mode: "text/x-scss",
@@ -253,7 +253,7 @@ class PluginTrademarkConfig extends CommonDBTM {
                foldGutter: true,
                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
             });
-            $("#' . $fullName . '_' . $rand . '").data("CodeMirrorInstance", editorCode);
+            jQuery("#' . $fullName . '_' . $rand . '").data("CodeMirrorInstance", editorCode);
 
             // Fix bad display of gutter (see https://github.com/codemirror/CodeMirror/issues/3098 )
             setTimeout(function () {editorCode.refresh();}, ' . (500 + self::$_i++ * 100) . ');
@@ -442,16 +442,16 @@ class PluginTrademarkConfig extends CommonDBTM {
          function trademarkFormatThemes(theme) {
             var data = theme && theme.element && theme.element.dataset || {};
             if (!theme.id || !data.preview) {
-               return $('<span></span>', {
+               return jQuery('<span></span>', {
                   html: '<img src="../plugins/trademark/pics/login.preview.png"/>&nbsp;' + theme.text
                });
             }
 
-            return $('<span></span>', {
+            return jQuery('<span></span>', {
                html: '<img src="../plugins/trademark/themes/' + theme.id + '/' + data.preview + '"/>&nbsp;' + theme.text
             });
          }
-         $("select[name=login_theme]").select2({
+         jQuery("select[name=login_theme]").select2({
             templateResult: trademarkFormatThemes,
             templateSelection: trademarkFormatThemes,
             width: '100%',
@@ -468,10 +468,10 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo '<a id="trademark-preview" href="#">' . __('Preview') . '</a>';
       ?>
       <script type="text/javascript">
-         $('#trademark-preview').on('click', function() {
+         jQuery('#trademark-preview').on('click', function() {
             var url = <?php echo json_encode($CFG_GLPI['root_doc'] . "/index.php") ?>;
             url += '?noAUTO=1';
-            var theme = $("select[name=login_theme]").val() || 'original';
+            var theme = jQuery("select[name=login_theme]").val() || 'original';
             url += '&theme=' + theme;
             window.open(url, 'trademark_preview', 'titlebar=0&status=0');
          });

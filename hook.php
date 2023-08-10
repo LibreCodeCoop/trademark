@@ -37,12 +37,12 @@ function plugin_trademark_display_login() {
 
    ?>
    <script type="text/javascript">
-      var $box = $('#firstboxlogin');
-      var $wrapper = $('<div />', {
+      var $box = jQuery('#firstboxlogin');
+      var $wrapper = jQuery('<div />', {
          class: 'login_wrapper'
       }).append($box.contents());
       $wrapper.prependTo($box);
-      $('#display-login').appendTo($box);
+      jQuery('#display-login').appendTo($box);
    <?php
 
    if ($loginPicture) :
@@ -52,17 +52,17 @@ function plugin_trademark_display_login() {
          'max-height' => PluginTrademarkConfig::getConfig('login_picture_max_height', '80px'),
       ];
       ?>
-         var $logo_login = $('#logo_login');
+         var $logo_login = jQuery('#logo_login');
          var $img = $logo_login.find('img');
          if (!$img.length) {
-            $logo_login.replaceWith($('<h1 />', {
+            $logo_login.replaceWith(jQuery('<h1 />', {
                id: 'logo_login',
-               html: $('<img />', {
+               html: jQuery('<img />', {
                   src: <?php echo json_encode($pictureUrl) ?>,
                   css: <?php echo json_encode($css) ?>
                })
             }));
-            $logo_login = $('#logo_login');
+            $logo_login = jQuery('#logo_login');
          } else {
             $img.css(<?php echo json_encode($css) ?>);
             $img.attr('src', <?php echo json_encode($pictureUrl) ?>);
@@ -80,7 +80,7 @@ function plugin_trademark_display_login() {
    if ($favicon) :
       $faviconUrl = PluginTrademarkToolbox::getPictureUrl($favicon);
       ?>
-         var $icon = $('link[rel*=icon]');
+         var $icon = jQuery('link[rel*=icon]');
          $icon.attr('type', null);
          $icon.attr('href', <?php echo json_encode($faviconUrl) ?>);
       <?php
@@ -88,7 +88,7 @@ function plugin_trademark_display_login() {
    $pageTitle = PluginTrademarkConfig::getConfig('page_title');
    if ($pageTitle) :
       ?>
-         var $title = $('title');
+         var $title = jQuery('title');
          var newTitle = $title.text().replace('GLPI', <?php echo json_encode($pageTitle) ?>);
          $title.text(newTitle);
       <?php
@@ -97,16 +97,16 @@ function plugin_trademark_display_login() {
    $footerText = PluginTrademarkConfig::getConfig('page_footer_text', '');
    if ($footerDisplay === 'hide') :
       ?>
-         $(function() {
-            $('#footer-login').hide();
+         jQuery(function() {
+            jQuery('#footer-login').hide();
          });
       <?php
       endif;
    if ($footerDisplay === 'custom') :
       $footerText = Toolbox::getHtmlToDisplay($footerText);
       ?>
-         $(function() {
-            $('#footer-login').html(<?php echo json_encode($footerText) ?>);
+         jQuery(function() {
+            jQuery('#footer-login').html(<?php echo json_encode($footerText) ?>);
          });
       <?php
       endif;

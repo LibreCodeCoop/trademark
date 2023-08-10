@@ -49,12 +49,12 @@ if (false) {
    <?php
 }
 
-echo "$(function () {";
+echo "jQuery(function () {";
 $favicon = PluginTrademarkConfig::getConfig('favicon_picture');
 if ($favicon) :
    $faviconUrl = PluginTrademarkToolbox::getPictureUrl($favicon);
    ?>
-         var $icon = $('link[rel*=icon]');
+         var $icon = jQuery('link[rel*=icon]');
          $icon.attr('type', null);
          $icon.attr('href', <?php echo json_encode($faviconUrl) ?>);
    <?php
@@ -62,7 +62,7 @@ if ($favicon) :
 $pageTitle = PluginTrademarkConfig::getConfig('page_title');
 if ($pageTitle) :
    ?>
-         var $title = $('title');
+         var $title = jQuery('title');
          var newTitle = $title.text().replace('GLPI', <?php echo json_encode($pageTitle) ?>);
          $title.text(newTitle);
    <?php
@@ -72,16 +72,16 @@ $footerDisplay = PluginTrademarkConfig::getConfig('page_footer_display', 'origin
 $footerText = PluginTrademarkConfig::getConfig('page_footer_text', '');
 if ($footerDisplay === 'hide') :
    ?>
-         $('#footer .right .copyright').hide().text('');
-         if (!$('#footer').text()) {
-            $('#footer').hide();
+         jQuery('#footer .right .copyright').hide().text('');
+         if (!jQuery('#footer').text()) {
+            jQuery('#footer').hide();
          }
    <?php
    endif;
 if ($footerDisplay === 'custom') :
    $footerText = Toolbox::getHtmlToDisplay($footerText);
    ?>
-         $('#footer .right .copyright').parent().html(<?php echo json_encode($footerText) ?>);
+         jQuery('#footer .right .copyright').parent().html(<?php echo json_encode($footerText) ?>);
    <?php
    endif;
 
