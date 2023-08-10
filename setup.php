@@ -21,7 +21,8 @@ function plugin_init_trademark() {
    global $PLUGIN_HOOKS, $CFG_GLPI;
    $PLUGIN_HOOKS['csrf_compliant']['trademark'] = true;
 
-   $PLUGIN_HOOKS['config_page']['trademark'] = '../../front/config.form.php?itemtype=Config&glpi_tab=PluginTrademarkConfig$1';
+   Plugin::registerClass('PluginTrademarkConfig', ['addtabon' => 'Config']);
+   $PLUGIN_HOOKS['config_page']['trademark'] = 'front/config.form.php';
 
    $plugin = new Plugin();
 
