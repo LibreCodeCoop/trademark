@@ -7,6 +7,8 @@ if (!defined('GLPI_ROOT')) {
 $_GET["donotcheckversion"]   = true;
 $dont_check_maintenance_mode = true;
 
+include('../../../inc/includes.php');
+
 // Redirect if is a not cached URL
 if (!isset($_GET['_'])) {
    //std cache, with DB connection
@@ -28,8 +30,6 @@ if (!isset($_GET['_'])) {
    Html::redirect($url, 302);
    die;
 }
-
-include('../../../inc/includes.php');
 
 $name = 'internal';
 $css = "";
