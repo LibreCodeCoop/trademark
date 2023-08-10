@@ -3,10 +3,10 @@
 define('PLUGIN_TRADEMARK_VERSION', '1.2.3');
 
 // Minimal GLPI version, inclusive
-define("PLUGIN_TRADEMARK_MIN_GLPI_VERSION", "9.3");
+define("PLUGIN_TRADEMARK_MIN_GLPI_VERSION", "10.0.0");
 
 // Maximum GLPI version, exclusive
-define("PLUGIN_TRADEMARK_MAX_GLPI_VERSION", "9.6");
+define("PLUGIN_TRADEMARK_MAX_GLPI_VERSION", "10.1.0");
 
 
 $folder = basename(dirname(__FILE__));
