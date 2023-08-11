@@ -1,4 +1,4 @@
-# Trademark for GLPI >= 9.5
+# Trademark for GLPI >= 10.0
 
 ![Lint](https://github.com/librecodecoop/trademark/workflows/Lint/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/librecodecoop/trademark/badge)](https://www.codefactor.io/repository/github/librecodecoop/trademark)
