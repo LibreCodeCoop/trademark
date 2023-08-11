@@ -79,7 +79,7 @@ if ($footerDisplay === 'hide') :
    <?php
    endif;
 if ($footerDisplay === 'custom') :
-   $footerText = Toolbox::getHtmlToDisplay($footerText);
+   $footerText = Glpi\RichText\RichText::getEnhancedHtml($footerText);
    ?>
          jQuery('#footer .right .copyright').parent().html(<?php echo json_encode($footerText) ?>);
    <?php
