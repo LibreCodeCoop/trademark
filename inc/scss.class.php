@@ -38,18 +38,18 @@ class PluginTrademarkScss {
       if (method_exists($scss, 'setOutputStyle')) {
          $scss->setOutputStyle("compressed");
       } else {
-         $scss->setFormatter("$namespace\Formatter\Crunched");
+         $scss->setOutputStyle("$namespace\Formatter\Crunched");
       }
       $scss->addImportPath(GLPI_ROOT);
 
-      $scss->setVariables($variables);
+      $scss->addVariables($variables);
 
       $ckey = md5($content . json_encode($variables));
 
       if ($GLPI_CACHE->has($ckey) && !isset($_GET['reload']) && !isset($_GET['nocache'])) {
          $css = $GLPI_CACHE->get($ckey);
       } else {
-         $css = $scss->compile($content);
+         $css = $scss->compileString($content);
          if (!isset($_GET['nocache'])) {
             $GLPI_CACHE->set($ckey, $css);
          }
