@@ -45,7 +45,7 @@
         <lang>en_GB</lang>
         <lang>pt_BR</lang>
     </langs>
-    <license><![CDATA[MIT]]></license>
+    <license><![CDATA[AGPL]]></license>
     <tags>
         <en>
             <tag>Customization</tag>
