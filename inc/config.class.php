@@ -125,6 +125,10 @@ class PluginTrademarkConfig extends CommonDBTM {
       $input = self::checkCSS('internal', t_trademark('Internal Page'), $input, $old);
 
       foreach ($input as $key => $value) {
+         if (str_starts_with($key, '_uploader_')) {
+            unset($input[$key]);
+            continue;
+         }
          if ($value && strpos($key, '_blank_') === 0) {
             $name = substr($key, 7);
             $input[$name] = '';
@@ -241,7 +245,7 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo '</textarea>';
 
       echo Html::scriptBlock('
-         $(function() {
+         jQuery(function() {
             var textarea = document.getElementById("' . $fullName . '_' . $rand . '");
             var editorCode = CodeMirror.fromTextArea(textarea, {
                mode: "text/x-scss",
@@ -253,7 +257,7 @@ class PluginTrademarkConfig extends CommonDBTM {
                foldGutter: true,
                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
             });
-            $("#' . $fullName . '_' . $rand . '").data("CodeMirrorInstance", editorCode);
+            jQuery("#' . $fullName . '_' . $rand . '").data("CodeMirrorInstance", editorCode);
 
             // Fix bad display of gutter (see https://github.com/codemirror/CodeMirror/issues/3098 )
             setTimeout(function () {editorCode.refresh();}, ' . (500 + self::$_i++ * 100) . ');
@@ -289,20 +293,6 @@ class PluginTrademarkConfig extends CommonDBTM {
 
       $rand = mt_rand();
       echo "<style>
-      #tabs$rand .ui-tabs-nav {
-         width: auto;
-      }
-      #tabs$rand .ui-tabs-nav li {
-         clear: none;
-         width: auto;
-         margin-right: 5px;
-      }
-      #tabs$rand .ui-tabs-nav li a {
-         width: auto;
-      }
-      #tabs$rand .ui-tabs-panel {
-         margin-left: 0;
-      }
       .CodeMirror {
          border: 1px solid #eee;
          height: auto;
@@ -332,15 +322,15 @@ class PluginTrademarkConfig extends CommonDBTM {
       }
       </style>";
 
-      echo "<div id='tabs$rand' class='center tab_cadre_fixe horizontal trademark ui-tabs ui-corner-all ui-widget ui-widget-content'>";
-      echo "<ul role='tablist' class='ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header'>";
-      echo "<li><a href='#tab_trademark_favicon'>" . t_trademark('Favicon and Title') . "</a></li>";
-      echo "<li><a href='#tab_trademark_login'>" . t_trademark('Login Page') . "</a></li>";
-      echo "<li><a href='#tab_trademark_internal'>" . t_trademark('Internal Page') . "</a></li>";
+      echo "<div id='tabs$rand' class='horizontal'>";
+      echo "<ul id='tabspanel' class='nav nav-tabs'>";
+      echo "<li class='nav-item'><a href='#tab_trademark_favicon' class='nav-link active'>" . t_trademark('Favicon and Title') . "</a></li>";
+      echo "<li class='nav-item'><a href='#tab_trademark_login' class='nav-link'>" . t_trademark('Login Page') . "</a></li>";
+      echo "<li class='nav-item'><a href='#tab_trademark_internal' class='nav-link'>" . t_trademark('Internal Page') . "</a></li>";
       echo "</ul>";
 
       // General
-      echo "<div id='tab_trademark_favicon'>";
+      echo "<div id='tab_trademark_favicon' class='tab-content'>";
       echo "<table class='tab_cadre_fixe'>";
 
       echo "<tr class='tab_bg_1'>";
@@ -385,16 +375,6 @@ class PluginTrademarkConfig extends CommonDBTM {
          'rows' => 1,
          'enable_richtext' => true,
       ]);
-      ?>
-      <script type="text/javascript">
-         $(document).ready(function() {
-            var editor = tinyMCE.get(<?php echo json_encode('text' . $rand) ?>);
-            editor.settings.force_br_newlines = true;
-            editor.settings.force_p_newlines = false;
-            editor.settings.forced_root_block = '';
-         });
-      </script>
-      <?php
       echo "</td>";
       echo "</tr>\n";
 
@@ -402,7 +382,7 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo "</div>";
 
       // Login
-      echo "<div id='tab_trademark_login' style='display: none;'>";
+      echo "<div id='tab_trademark_login' style='display: none;' class='tab-content'>";
       echo "<table class='tab_cadre_fixe'>";
 
       echo "<tr class='tab_bg_1'>";
@@ -442,16 +422,16 @@ class PluginTrademarkConfig extends CommonDBTM {
          function trademarkFormatThemes(theme) {
             var data = theme && theme.element && theme.element.dataset || {};
             if (!theme.id || !data.preview) {
-               return $('<span></span>', {
+               return jQuery('<span></span>', {
                   html: '<img src="../plugins/trademark/pics/login.preview.png"/>&nbsp;' + theme.text
                });
             }
 
-            return $('<span></span>', {
+            return jQuery('<span></span>', {
                html: '<img src="../plugins/trademark/themes/' + theme.id + '/' + data.preview + '"/>&nbsp;' + theme.text
             });
          }
-         $("select[name=login_theme]").select2({
+         jQuery("select[name=login_theme]").select2({
             templateResult: trademarkFormatThemes,
             templateSelection: trademarkFormatThemes,
             width: '100%',
@@ -468,10 +448,10 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo '<a id="trademark-preview" href="#">' . __('Preview') . '</a>';
       ?>
       <script type="text/javascript">
-         $('#trademark-preview').on('click', function() {
+         jQuery('#trademark-preview').on('click', function() {
             var url = <?php echo json_encode($CFG_GLPI['root_doc'] . "/index.php") ?>;
             url += '?noAUTO=1';
-            var theme = $("select[name=login_theme]").val() || 'original';
+            var theme = jQuery("select[name=login_theme]").val() || 'original';
             url += '&theme=' + theme;
             window.open(url, 'trademark_preview', 'titlebar=0&status=0');
          });
@@ -547,7 +527,7 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo "</div>";
 
       // Internal Page
-      echo "<div id='tab_trademark_internal' style='display: none;'>";
+      echo "<div id='tab_trademark_internal' style='display: none;' class='tab-content'>";
       echo "<table class='tab_cadre_fixe'>";
 
       echo "<tr class='tab_bg_1'>";
@@ -585,16 +565,42 @@ class PluginTrademarkConfig extends CommonDBTM {
 
       echo "</div>";
 
-      echo Html::scriptBlock("$('#tabs$rand').tabs({
-         activate: function(event, ui) {
-            localStorage['trademark_last_tab'] = $('#tabs$rand').tabs('option', 'active');
-            var editor = ui.newPanel.find('.trademark-codemirror').data('CodeMirrorInstance');
-            if (editor) {
-               editor.refresh();
-            }
-         },
-         active: localStorage['trademark_last_tab']
-      });");
+      echo Html::scriptBlock(<<<JAVASCRIPT
+         const tabElements = jQuery('#tabs$rand .nav-link');
+         const panelElements = jQuery('#tabs$rand [id^=tab_trademark_]');
+         let activeIndex = 0;
+
+         tabElements.each(function (index, tab) {
+            tab.addEventListener("click", function (event) {
+               setActiveTab(index);
+            });
+         });
+
+         function setActivePanel(index) {
+               jQuery(panelElements[activeIndex]).hide()
+               panelElements[activeIndex].tabIndex = -1;
+
+               jQuery(panelElements[index]).show()
+               panelElements[index].tabIndex = 0;
+               var editor = jQuery(panelElements[index]).find('.trademark-codemirror').data('CodeMirrorInstance');
+               if (editor) {
+                  editor.refresh();
+               }
+         }
+
+         function setActiveTab(index) {
+            // Make currently active tab inactive
+            jQuery(tabElements[activeIndex]).removeClass("active");
+            tabElements[activeIndex].tabIndex = -1;
+
+            // Set the new tab as active
+            jQuery(tabElements[index]).addClass("active");
+            tabElements[index].tabIndex = 0;
+
+            setActivePanel(index);
+            activeIndex = index;
+         }
+         JAVASCRIPT);
 
       if ($canedit) {
          echo "<table class='tab_cadre_fixe'>";

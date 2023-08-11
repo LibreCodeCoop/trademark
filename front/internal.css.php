@@ -7,6 +7,8 @@ if (!defined('GLPI_ROOT')) {
 $_GET["donotcheckversion"]   = true;
 $dont_check_maintenance_mode = true;
 
+include('../../../inc/includes.php');
+
 // Redirect if is a not cached URL
 if (!isset($_GET['_'])) {
    //std cache, with DB connection
@@ -29,14 +31,12 @@ if (!isset($_GET['_'])) {
    die;
 }
 
-include('../../../inc/includes.php');
-
 $name = 'internal';
 $css = "";
 
 $picture = PluginTrademarkConfig::getConfig("{$name}_picture", '');
 if ($picture) {
-   $css .= "#header #c_logo {";
+   $css .= "body .page .glpi-logo {";
    $css .= " width: " . PluginTrademarkConfig::getConfig("{$name}_picture_width", '100px') . ";";
    $css .= " height: " . PluginTrademarkConfig::getConfig("{$name}_picture_height", '55px') . ";";
    $css .= " background-size: contain;";
