@@ -1,12 +1,12 @@
 <?php
 
-define('PLUGIN_TRADEMARK_VERSION', '1.2.3');
+define('PLUGIN_TRADEMARK_VERSION', '1.3.0');
 
 // Minimal GLPI version, inclusive
-define("PLUGIN_TRADEMARK_MIN_GLPI_VERSION", "9.3");
+define("PLUGIN_TRADEMARK_MIN_GLPI_VERSION", "10.0.0");
 
 // Maximum GLPI version, exclusive
-define("PLUGIN_TRADEMARK_MAX_GLPI_VERSION", "9.6");
+define("PLUGIN_TRADEMARK_MAX_GLPI_VERSION", "10.1.0");
 
 
 $folder = basename(dirname(__FILE__));
@@ -21,7 +21,8 @@ function plugin_init_trademark() {
    global $PLUGIN_HOOKS, $CFG_GLPI;
    $PLUGIN_HOOKS['csrf_compliant']['trademark'] = true;
 
-   $PLUGIN_HOOKS['config_page']['trademark'] = '../../front/config.form.php?itemtype=Config&glpi_tab=PluginTrademarkConfig$1';
+   Plugin::registerClass('PluginTrademarkConfig', ['addtabon' => 'Config']);
+   $PLUGIN_HOOKS['config_page']['trademark'] = 'front/config.form.php';
 
    $plugin = new Plugin();
 

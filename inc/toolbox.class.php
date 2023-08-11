@@ -58,7 +58,7 @@ class PluginTrademarkToolbox {
          return false;
       }
 
-      $filename     = uniqid($uniq_prefix);
+      $filename     = uniqid((string) $uniq_prefix);
       $ext          = pathinfo($src, PATHINFO_EXTENSION);
       $subdirectory = substr($filename, -2); // subdirectory based on last 2 hex digit
 
@@ -184,7 +184,7 @@ class PluginTrademarkToolbox {
       }
 
       //create new img resource for store thumbnail
-      $source_dest = imagecreatetruecolor($new_width, $new_height);
+      $source_dest = imagecreatetruecolor((int) $new_width, (int) $new_height);
 
       // set transparent background for PNG/GIF
       if ($img_type === IMAGETYPE_GIF || $img_type === IMAGETYPE_PNG) {
@@ -201,8 +201,8 @@ class PluginTrademarkToolbox {
          0,
          $img_x,
          $img_y,
-         $new_width,
-         $new_height,
+         (int) $new_width,
+         (int) $new_height,
          $img_width,
          $img_height
       );
