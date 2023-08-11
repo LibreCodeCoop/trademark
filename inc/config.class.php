@@ -125,6 +125,10 @@ class PluginTrademarkConfig extends CommonDBTM {
       $input = self::checkCSS('internal', t_trademark('Internal Page'), $input, $old);
 
       foreach ($input as $key => $value) {
+         if (str_starts_with($key, '_uploader_')) {
+            unset($input[$key]);
+            continue;
+         }
          if ($value && strpos($key, '_blank_') === 0) {
             $name = substr($key, 7);
             $input[$name] = '';
