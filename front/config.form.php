@@ -7,9 +7,7 @@ require_once('../inc/config.class.php');
 
 $config = new PluginTrademarkConfig();
 if (isset($_POST["update"])) {
-   $config->check($_POST['id'], UPDATE);
-
-   $config->update($_POST);
+   $config->configUpdate($_POST);
 
    Html::back();
 }
