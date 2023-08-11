@@ -289,20 +289,6 @@ class PluginTrademarkConfig extends CommonDBTM {
 
       $rand = mt_rand();
       echo "<style>
-      #tabs$rand .ui-tabs-nav {
-         width: auto;
-      }
-      #tabs$rand .ui-tabs-nav li {
-         clear: none;
-         width: auto;
-         margin-right: 5px;
-      }
-      #tabs$rand .ui-tabs-nav li a {
-         width: auto;
-      }
-      #tabs$rand .ui-tabs-panel {
-         margin-left: 0;
-      }
       .CodeMirror {
          border: 1px solid #eee;
          height: auto;
@@ -332,15 +318,15 @@ class PluginTrademarkConfig extends CommonDBTM {
       }
       </style>";
 
-      echo "<div id='tabs$rand' class='center tab_cadre_fixe horizontal trademark ui-tabs ui-corner-all ui-widget ui-widget-content'>";
-      echo "<ul role='tablist' class='ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header'>";
-      echo "<li><a href='#tab_trademark_favicon'>" . t_trademark('Favicon and Title') . "</a></li>";
-      echo "<li><a href='#tab_trademark_login'>" . t_trademark('Login Page') . "</a></li>";
-      echo "<li><a href='#tab_trademark_internal'>" . t_trademark('Internal Page') . "</a></li>";
+      echo "<div id='tabs$rand' class='horizontal'>";
+      echo "<ul id='tabspanel' class='nav nav-tabs'>";
+      echo "<li class='nav-item'><a href='#tab_trademark_favicon' class='nav-link active'>" . t_trademark('Favicon and Title') . "</a></li>";
+      echo "<li class='nav-item'><a href='#tab_trademark_login' class='nav-link'>" . t_trademark('Login Page') . "</a></li>";
+      echo "<li class='nav-item'><a href='#tab_trademark_internal' class='nav-link'>" . t_trademark('Internal Page') . "</a></li>";
       echo "</ul>";
 
       // General
-      echo "<div id='tab_trademark_favicon'>";
+      echo "<div id='tab_trademark_favicon' class='tab-content'>";
       echo "<table class='tab_cadre_fixe'>";
 
       echo "<tr class='tab_bg_1'>";
@@ -385,16 +371,6 @@ class PluginTrademarkConfig extends CommonDBTM {
          'rows' => 1,
          'enable_richtext' => true,
       ]);
-      ?>
-      <script type="text/javascript">
-         $(document).ready(function() {
-            var editor = tinyMCE.get(<?php echo json_encode('text' . $rand) ?>);
-            editor.settings.force_br_newlines = true;
-            editor.settings.force_p_newlines = false;
-            editor.settings.forced_root_block = '';
-         });
-      </script>
-      <?php
       echo "</td>";
       echo "</tr>\n";
 
@@ -402,7 +378,7 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo "</div>";
 
       // Login
-      echo "<div id='tab_trademark_login' style='display: none;'>";
+      echo "<div id='tab_trademark_login' style='display: none;' class='tab-content'>";
       echo "<table class='tab_cadre_fixe'>";
 
       echo "<tr class='tab_bg_1'>";
@@ -547,7 +523,7 @@ class PluginTrademarkConfig extends CommonDBTM {
       echo "</div>";
 
       // Internal Page
-      echo "<div id='tab_trademark_internal' style='display: none;'>";
+      echo "<div id='tab_trademark_internal' style='display: none;' class='tab-content'>";
       echo "<table class='tab_cadre_fixe'>";
 
       echo "<tr class='tab_bg_1'>";
@@ -585,16 +561,42 @@ class PluginTrademarkConfig extends CommonDBTM {
 
       echo "</div>";
 
-      echo Html::scriptBlock("$('#tabs$rand').tabs({
-         activate: function(event, ui) {
-            localStorage['trademark_last_tab'] = $('#tabs$rand').tabs('option', 'active');
-            var editor = ui.newPanel.find('.trademark-codemirror').data('CodeMirrorInstance');
-            if (editor) {
-               editor.refresh();
-            }
-         },
-         active: localStorage['trademark_last_tab']
-      });");
+      echo Html::scriptBlock(<<<JAVASCRIPT
+         const tabElements = jQuery('#tabs$rand .nav-link');
+         const panelElements = jQuery('#tabs$rand [id^=tab_trademark_]');
+         let activeIndex = 0;
+
+         tabElements.each(function (index, tab) {
+            tab.addEventListener("click", function (event) {
+               setActiveTab(index);
+            });
+         });
+
+         function setActivePanel(index) {
+               jQuery(panelElements[activeIndex]).hide()
+               panelElements[activeIndex].tabIndex = -1;
+
+               jQuery(panelElements[index]).show()
+               panelElements[index].tabIndex = 0;
+               var editor = jQuery(panelElements[index]).find('.trademark-codemirror').data('CodeMirrorInstance');
+               if (editor) {
+                  editor.refresh();
+               }
+         }
+
+         function setActiveTab(index) {
+            // Make currently active tab inactive
+            jQuery(tabElements[activeIndex]).removeClass("active");
+            tabElements[activeIndex].tabIndex = -1;
+
+            // Set the new tab as active
+            jQuery(tabElements[index]).addClass("active");
+            tabElements[index].tabIndex = 0;
+
+            setActivePanel(index);
+            activeIndex = index;
+         }
+         JAVASCRIPT);
 
       if ($canedit) {
          echo "<table class='tab_cadre_fixe'>";
