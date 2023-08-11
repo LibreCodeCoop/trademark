@@ -1,6 +1,6 @@
 <?php
 
-define('PLUGIN_TRADEMARK_VERSION', '1.2.3');
+define('PLUGIN_TRADEMARK_VERSION', '1.3.0');
 
 // Minimal GLPI version, inclusive
 define("PLUGIN_TRADEMARK_MIN_GLPI_VERSION", "10.0.0");
