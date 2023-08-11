@@ -98,15 +98,15 @@ function plugin_trademark_display_login() {
    if ($footerDisplay === 'hide') :
       ?>
          jQuery(function() {
-            jQuery('#footer-login').hide();
+            jQuery('.copyright').parent().hide();
          });
       <?php
       endif;
    if ($footerDisplay === 'custom') :
-      $footerText = Toolbox::getHtmlToDisplay($footerText);
+      $footerText = Glpi\RichText\RichText::getEnhancedHtml($footerText);
       ?>
          jQuery(function() {
-            jQuery('#footer-login').html(<?php echo json_encode($footerText) ?>);
+            jQuery('.copyright').parent().html(<?php echo json_encode($footerText) ?>);
          });
       <?php
       endif;

@@ -89,6 +89,17 @@ class PluginTrademarkScss {
          $css .= "}";
       }
 
+      $loginPicture = PluginTrademarkConfig::getConfig('login_picture');
+      if ($loginPicture) {
+         $pictureUrl = PluginTrademarkToolbox::getPictureUrl($loginPicture);
+         $css .= <<<CSS
+            .page-anonymous .glpi-logo {
+               --logo: url($pictureUrl);
+               content: var(--logo);
+            }
+            CSS;
+      }
+
       $css_type = PluginTrademarkConfig::getConfig("login_css_type", 'scss');
       $css_custom = PluginTrademarkConfig::getConfig("login_css_custom", '');
 
