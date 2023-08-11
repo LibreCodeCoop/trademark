@@ -36,7 +36,7 @@ $css = "";
 
 $picture = PluginTrademarkConfig::getConfig("{$name}_picture", '');
 if ($picture) {
-   $css .= "#header #c_logo {";
+   $css .= "body .page .glpi-logo {";
    $css .= " width: " . PluginTrademarkConfig::getConfig("{$name}_picture_width", '100px') . ";";
    $css .= " height: " . PluginTrademarkConfig::getConfig("{$name}_picture_height", '55px') . ";";
    $css .= " background-size: contain;";
