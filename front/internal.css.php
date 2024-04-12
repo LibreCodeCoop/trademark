@@ -44,6 +44,16 @@ if ($picture) {
    $css .= " background-position: center;";
    $css .= " background-image: url(\"" . PluginTrademarkToolbox::getPictureUrl($picture) . "\");";
    $css .= "}";
+   // LOGO in Internal Page for navbar-collapsed mode
+   $css .= "@media (min-width: 992px) {";
+   $css .= " body.navbar-collapsed .navbar-brand .glpi-logo {";
+   $css .= " background: url(\"" . PluginTrademarkToolbox::getPictureUrl($picture) . "\") !important;";
+   $css .= " width: 55px !important;";
+   $css .= " height: 55px !important;";
+   $css .= " background-size: contain !important;";
+   $css .= " background-repeat: no-repeat !important;";
+   $css .= " background-position: center !important;";
+   $css .= "}";
 }
 
 $css_type = PluginTrademarkConfig::getConfig("{$name}_css_type", 'scss');
